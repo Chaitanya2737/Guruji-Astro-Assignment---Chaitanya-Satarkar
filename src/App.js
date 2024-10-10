@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css"
+import PersonalInfo from "./Components/PersonalInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route } from "react-router";
+
 
 function App() {
+  const dispatch = useDispatch()
+  const mode = useSelector((state) => state.mode.isDark);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <div className={`${!mode ? "bg-primary" : "bg-secondary"}`}>
+    <div className={`mx-8 md:mx-16 lg:mx-18  h-screen`}>
+      <Routes>
+        <Route  element={<PersonalInfo />}
+         path="/step1" />
+      </Routes>
     </div>
+   </div>
   );
 }
 
