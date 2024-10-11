@@ -4,7 +4,7 @@ import modeReducer from "./modeReducer"
 
  const store =  configureStore({
     reducer : {
-       form: formReducer ,
+       form: formReducer,
        mode : modeReducer
     }
 

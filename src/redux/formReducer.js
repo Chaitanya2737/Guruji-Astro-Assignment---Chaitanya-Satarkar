@@ -2,13 +2,23 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const formReducer = createSlice({
     name: "userData",
-    initialState: [],
+    initialState: {
+        name: "",
+        mobile: 0,
+        email:"",
+        addressLineOne: "",
+        addressLineSecond: "",
+        city: "",
+        zipCode: 0
+    },
     reducers: {
         setUserData(state, action) {
-            state.push(action.payload);
+            return { ...state, ...action.payload }; 
         }
     }
 });
 
+
 export const { setUserData } = formReducer.actions;
+
 export default formReducer.reducer;
